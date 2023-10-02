@@ -1,0 +1,6 @@
+# Intrepydd code to test isnan function.
+# Author: Sriraj (sriraj@gatech.edu)
+
+def func(x: Array(float64, 2)) -> Array(bool, 2):
+    a = isnan(x)
+    return a

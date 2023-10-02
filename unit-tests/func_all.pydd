@@ -1,0 +1,14 @@
+# Intrepydd code to test all function.
+# Author: Akihiro Hayashi (ahayashi@rice.edu)
+
+def funcBool(A: Array(bool, 2)) -> bool:
+    x = all(A)
+    return x
+
+def funcInt(A: Array(int64, 2)) -> bool:
+    x = all(A)
+    return x
+
+def funcDouble(A: Array(float64, 2)) -> bool:
+    x = all(A)
+    return x

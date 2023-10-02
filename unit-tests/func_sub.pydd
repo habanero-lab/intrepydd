@@ -1,0 +1,6 @@
+#Intrepydd code to test sub function (elementwise).
+#Author: Armand Behroozi (armandb@umich.edu)
+
+def sub_wrapper(arr1: Array(int64), arr2: Array(int64) ) -> Array(int64):
+    result = sub(arr1, arr2)
+    return result

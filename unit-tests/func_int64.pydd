@@ -1,0 +1,18 @@
+#Intrepydd code to test int64 function (rt.hpp).
+#Author: Ankush Mandal (ankush@gatech.edu)
+
+def do_int64() -> int64:
+  result = int64()
+  return result
+
+def do_int64_2(val: int32) -> int64:
+  result = int64(val)
+  return result
+
+def do_int64_3(val: float32) -> int64:
+  result = int64(val)
+  return result
+
+def do_int64_4(val: float64) -> int64:
+  result = int64(val)
+  return result

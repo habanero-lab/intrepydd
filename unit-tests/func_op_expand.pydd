@@ -1,0 +1,14 @@
+#Intrepydd code to test nparray operator expansion.
+#Author: Matthew Sternberg (msternberg6@gatech.edu)
+
+def wrapper_np_mult(A: Array(int64), B: Array(int64)) -> Array(int64):
+    result = A * B
+    return result
+
+def wrapper_np_add(A: Array(int64), B: Array(int64)) -> Array(int64):
+    result = A + B
+    return result
+
+def wrapper_np_sub(A: Array(int64), b: int64) -> Array(int64):
+    result = A - b
+    return result

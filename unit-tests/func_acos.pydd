@@ -1,0 +1,6 @@
+# Intrepydd code to test acos function.
+# Author: Sriraj (sriraj@gatech.edu)
+
+def func(x: Array(float64, 2)) -> Array(float64, 2):
+    a = acos(x)
+    return a

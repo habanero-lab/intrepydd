@@ -1,0 +1,11 @@
+# Intrepydd code to test argmax function.
+# Author: Sriraj (sriraj@gatech.edu)
+
+def func(A: Array(float64, 3)) -> Array(int64) :
+    r = argmax(A)
+    r_np = empty((3,), int64())
+    r_np[0] = r[0]
+    r_np[1] = r[1]
+    r_np[2] = r[2]
+    return r_np
+

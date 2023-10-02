@@ -1,0 +1,10 @@
+#Intrepydd code to test float32 function (rt.hpp).
+#Author: Ankush Mandal (ankush@gatech.edu)
+
+def do_float32() -> float32:
+  result = float32()
+  return result
+
+def do_float32_2(val: int32) -> float32:
+  result = float32(val)
+  return result

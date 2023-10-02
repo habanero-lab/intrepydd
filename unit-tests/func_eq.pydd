@@ -1,0 +1,6 @@
+# Intrepydd code to test eq function.
+# Author: Akihiro Hayashi (ahayashi@rice.edu)
+
+def func(A, B: Array(D, 2)):
+    C = eq(A, B)
+    return C

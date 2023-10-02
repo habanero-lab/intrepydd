@@ -1,0 +1,18 @@
+#Intrepydd code to test sum function (Reduction).
+#Author: Armand Behroozi (armandb@umich.edu)
+
+def sum_wrapper(arr: Array(int64)) -> int64:
+    result = sum(arr)
+    return result
+
+def sum_wrapper2(arr: Array(int64, 2), axis: int64) -> Array(int64, 1):
+    result = arr.sum(axis)
+    return result
+
+def sum_wrapper3(arr: Array(float64, 2), axis: int64) -> Array(float64, 1):
+    result = arr.sum(axis)
+    return result
+
+def sum_wrapper4(arr: Array(int64, 3), axis: int64) -> Array(int64, 2):
+    result = arr.sum(axis)
+    return result

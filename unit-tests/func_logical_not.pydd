@@ -1,0 +1,10 @@
+# Intrepydd code to test logical_not function.
+# Author: Sriraj (sriraj@gatech.edu)
+
+def func1(A: int64) -> bool:
+    C = logical_not(A)
+    return C
+
+def func2(A: Array(float64, 2)) -> Array(bool, 2):
+    C = logical_not(A)
+    return C

@@ -1,0 +1,10 @@
+#Intrepydd code to test div function (elementwise).
+#Author: Ankush Mandal (ankush@gatech.edu)
+
+def do_div(arr1: Array(int32, 2), arr2: Array(int32, 2) ) -> Array(float64, 2):
+  result = div(arr1, arr2)
+  return result
+
+def do_div2(arr1: Array(float64, 2), val: float64) -> Array(float64, 2):
+  result = div(arr1, val)
+  return result

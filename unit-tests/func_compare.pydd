@@ -1,0 +1,5 @@
+# Author: Tong Zhou (tz@gatech.edu)
+
+
+def f1(x: int32, y: int32) -> int32:
+    return int32(x < y)   # Desired output: 0 or 1

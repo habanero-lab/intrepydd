@@ -1,0 +1,6 @@
+# Intrepydd code to test neq function.
+# Author: Akihiro Hayashi (ahayashi@rice.edu)
+
+def func(A: Array(float64, 2), B: Array(float64, 2)) -> Array(bool, 2):
+    C = neq(A, B)
+    return C

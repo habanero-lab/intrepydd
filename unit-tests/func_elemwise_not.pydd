@@ -1,0 +1,6 @@
+# Intrepydd code to test elemwise_not function.
+# Author: Akihiro Hayashi (ahayashi@rice.edu)
+
+def func(A: Array(bool, 2)) -> Array(bool, 2):
+    C = elemwise_not(A)
+    return C

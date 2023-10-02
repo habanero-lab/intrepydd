@@ -1,0 +1,11 @@
+# Intrepydd code to test max function.
+# Author: Mang Yu (mangyu2@illinois.edu)
+
+def func_int(A: Array(int32, 2)) -> int32:
+    r = max(A)
+    return r
+
+def func_float(A: Array(float32, 2)) -> float32:
+    r = max(A)
+    return r
+

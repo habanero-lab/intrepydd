@@ -1,0 +1,7 @@
+# Intrepydd code to test where function.
+# Author: Akihiro Hayashi (ahayashi@rice.edu)
+
+def func(A: Array(bool, 1)) -> Array(int32, 1):
+    B = where(A)
+    return B
+    

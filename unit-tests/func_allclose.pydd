@@ -1,0 +1,6 @@
+# Intrepydd code to test allclose function.
+# Author: Akihiro Hayashi (ahayashi@rice.edu)
+
+def func(A: Array(float64, 2), u: float64) -> bool:
+    x = allclose(A, u)
+    return x

@@ -1,0 +1,20 @@
+# Intrepydd code to test range function.
+# Author: Jun Shirako (shirako@gatech.edu)
+
+def func(x: int32) -> int32:
+    #a: Array(int32, 2) = empty([3,3], int32())
+    a = empty([3,3], int32())
+    n = -1
+    for i in range(x):
+        n = i
+        #b = empty_like(a)
+        #_add(a, i, b)
+        b = add(a, add(a, i))
+        b[0] = i + 1
+
+    # while n < 10:
+    #     b = add(a, i)
+    #     n += 1
+
+    c = empty([3,3], float64())    
+    return n

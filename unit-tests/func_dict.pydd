@@ -1,0 +1,29 @@
+# Author: Tong Zhou (tz@gatech.edu)
+
+def f1(d: Dict(int, double)) -> Dict(int, double):
+    d[0] = 100.0
+    return d
+
+def f2(n: double) -> Dict(int, double):
+    d: Dict(int, double) = {}
+    d[0] = 1.0
+    d[1] = 2.0
+    d[2] = cos(n)
+
+    for k in d:
+        d[k] += 1
+
+    return d
+
+
+
+def f3(g: Dict(int64, Array(int64)), offset: int64):
+    for src in g:
+        # for neib in g[src]:
+        #     print(neib)
+        if src >= offset:
+           for neib in g[src]:
+               if (neib > src):
+                   print("if")
+               elif (neib < offset):
+                   print("elif")

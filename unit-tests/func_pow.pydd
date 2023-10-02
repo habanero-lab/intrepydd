@@ -1,0 +1,6 @@
+# Intrepydd code to test eq function.
+# Author: Akihiro Hayashi (ahayashi@rice.edu)
+
+def func(A: Array(float64, 1), B: Array(float64, 1)) -> Array(float64, 1):
+    C = pow(A, B)
+    return C

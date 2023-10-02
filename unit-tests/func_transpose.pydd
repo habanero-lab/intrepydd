@@ -1,0 +1,16 @@
+#test intrepydd matrix transpose.
+#Author: Armand Behroozi (armandb@umich.edu)
+
+def transpose_wrapper(arr: Array(int64)) -> Array(int64):
+    result = transpose(arr)
+    return result
+
+
+def getrow(a: Array(int64, 2), i: int64):
+    C = get_row(a, i)
+    return C
+
+
+def getcol(a: Array(int64, 2), i: int64):
+    C = get_col(a, i)
+    return C

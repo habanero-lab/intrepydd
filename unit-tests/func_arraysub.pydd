@@ -1,0 +1,6 @@
+# Intrepydd code to test arraysub function.
+# Author: Akihiro Hayashi (ahayashi@rice.edu)
+
+def func(A: Array(float64, 2), i: int64, j: int64) -> float64:
+    x = A[i,j]
+    return x

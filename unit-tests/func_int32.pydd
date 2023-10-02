@@ -1,0 +1,10 @@
+#Intrepydd code to test int32 function (rt.hpp).
+#Author: Ankush Mandal (ankush@gatech.edu)
+
+def do_int32() -> int32:
+  result = int32()
+  return result
+
+def do_int32_2(val: float32) -> int32:
+  result = int32(val)
+  return result
