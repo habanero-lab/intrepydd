@@ -1,0 +1,4 @@
+def f1(v1: List(int32)) -> List(int32):
+    v2 = [1, 2, 3]
+    v2[0] = v1[0]
+    return v2

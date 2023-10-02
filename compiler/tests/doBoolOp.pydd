@@ -1,0 +1,7 @@
+def func():
+    x = 1
+    y = 1
+    if (not x < 0) and -(y < 0):
+        z = 1.23
+
+func()

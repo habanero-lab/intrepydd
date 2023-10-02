@@ -1,0 +1,5 @@
+def sum_1d(size: int, a: Array(double)) -> double:
+    f = 0.0
+    for c in range(0, size):
+        f += a[c]
+    return f

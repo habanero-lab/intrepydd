@@ -1,0 +1,41 @@
+def demo1():
+    '''
+    Print an array of ints.
+    '''
+    a = [1,2,3]
+    for i in a:
+        int32(i)
+        print(i)
+        
+def inc(xs: Array(float64), value: double):
+    '''
+    Increment every element in array `xs` by `value`.
+    Assume the array is 3d.
+    '''
+    for i in range(shape(xs, 0)):
+        for j in range(shape(xs, 1)):
+            for k in range(shape(xs, 2)):
+                xs[i, j, k] += value
+
+def sum(xs: Array(double)) -> double:
+    '''
+    Sum up all elements in 3d array `xs`
+    '''
+    sum = 0.0
+    for i in range(shape(xs, 0)):
+        for j in range(shape(xs, 1)):
+            for k in range(shape(xs, 2)):
+                sum += xs[i, j, k]
+    return sum
+
+def create_array() -> Array(int32):
+    a = zeros([3,4], int32())
+    return a
+
+def do_sum() -> double:
+    a = zeros((3,4,5))
+    inc(a, 2)
+    s = sum(a)
+    return s
+
+demo1()

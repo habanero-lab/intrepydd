@@ -1,0 +1,5 @@
+
+def foo():
+    a: List(int) = [1, 2, 3]
+    pfor i in a:
+        print(i)
