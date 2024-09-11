@@ -15,7 +15,6 @@ import utils
 import logging
 
 log1 = Logger('log1.xml')
-log2 = Logger('log2.xml')
 
 class UnsupportedException(Exception):
     def __init__(self,*args,**kwargs):
@@ -62,9 +61,9 @@ def init():
 
 
 def setup_loggers():
-    l = utils.setup_logger('ea', 'ea.log')
-    if args.verbose:
-        l.setLevel(logging.DEBUG)
+    # l = utils.setup_logger('ea', 'ea.log')
+    # if args.verbose:
+    #     l.setLevel(logging.DEBUG)
 
     l = utils.setup_logger('type', 'type.log')
     if args.dump_type:
@@ -105,7 +104,8 @@ def parse_args():
     parser.add_argument('-sparse-opt', default=False, action='store_true', help='Sparse array optimizations')
     parser.add_argument('-dense-opt', default=False, action='store_true', help='Dense array optimizations')
     parser.add_argument('-slice-opt', default=False, action='store_true', help='Use raw pointers for slices')
-    parser.add_argument('-alloc-opt', default=False, action='store_true', help='Array allocation optimizations via escape analsis')
+    # Tong: This option is potentially buggy, disable for now
+    # parser.add_argument('-alloc-opt', default=False, action='store_true', help='Array allocation optimizations via escape analsis')
 
     parser.add_argument('-dump-type', default='', help='Dump type info for locals (defaults to all locals). Possible values: "*" (all), "!__" (no __xx vars), "[var_name]"')
     

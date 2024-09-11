@@ -6,7 +6,9 @@
 #include <pybind11/numpy.h>
 //#include "array_alloc.hpp"
 #include "NpArray.hpp"
-#include <cblas.h>
+#include <mkl.h>
+#include <mkl_cblas.h>
+#include <mkl_blas.h>
 
 namespace py = pybind11;
 

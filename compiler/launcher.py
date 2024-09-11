@@ -86,15 +86,16 @@ def gen_cpp_module(code):
     if glb.args.verbose:
         print("Transform2 phase done.")
 
-    if glb.args.alloc_opt:
-        import escapeanalysis
-        import escapetransform
-        # This is hacky and inefficient but works for now 
-        for _ in range(3):
-            ea = escapeanalysis.EscapeAnalysis()
-            ea.visit(tree)
-            rewriter = escapetransform.AllocHoistTransformer()
-            rewriter.visit(tree)
+    # This code is potentially buggy, to fix
+    # if glb.args.alloc_opt:
+    #     import escapeanalysis
+    #     import escapetransform
+    #     # This is hacky and inefficient but works for now 
+    #     for _ in range(3):
+    #         ea = escapeanalysis.EscapeAnalysis()
+    #         ea.visit(tree)
+    #         rewriter = escapetransform.AllocHoistTransformer()
+    #         rewriter.visit(tree)
 
     if glb.args.g:
         import debugtransform
