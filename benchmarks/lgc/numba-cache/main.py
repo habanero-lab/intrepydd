@@ -31,8 +31,7 @@ def func0(seeds, degrees, alpha, epsilon,
 
     num_seeds = seeds.shape[0]
     
-    out = np.empty((50, 5157), numba.float64)
-    #out = np.empty((num_seeds, num_nodes), numba.float64) 
+    out = np.empty((num_seeds, num_nodes), numba.float64) 
     for i in range(num_seeds):
         seed = seeds[i]
         p = np.zeros(num_nodes)
@@ -175,12 +174,14 @@ if __name__ == "__main__":
     
     t = time()
     pnib_scores = parallel_pr_nibble(pnib_seeds, adj, alpha=args.alpha, epsilon=args.pnib_epsilon)
+    pnib_elapsed = time() - t
+    print(pnib_scores)
     assert pnib_scores.shape[0] == adj.shape[0]
     assert pnib_scores.shape[1] == len(pnib_seeds)
-    pnib_elapsed = time() - t
+    
     print('parallel_pr_nibble: elapsed = %f' % pnib_elapsed, file=sys.stderr)
 
-
+    exit(0)
     # --
     # Run ISTA
     

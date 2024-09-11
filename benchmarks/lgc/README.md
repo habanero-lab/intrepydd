@@ -1,20 +1,26 @@
 To run the Python implementation:
 ```bash
 $ cd python
-$ python main
+$ ./run.sh
 ```
 
 To run the Numba implementation:
 ```bash
 $ cd numba
-$ python main
+$ ./run.sh
+```
+
+To run the Numba-cache implementation:
+```bash
+$ cd numba-cache
+$ ./run.sh
 ```
 
 To run the Intrepydd implementation:
 ```bash
 $ cd intrepydd
 $ ./comp.sh  # compile the Intrepydd kernel to a Python module
-$ python main
+$ ./run.sh
 ```
 
-Note that the this current version only runs the PR-nibble algorithm. The ISTA algorithm is commented out.
+Note that the this current version only runs the PR-nibble algorithm (the output matrix is printed out). The ISTA algorithm is commented out.

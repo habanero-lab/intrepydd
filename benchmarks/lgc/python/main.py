@@ -136,13 +136,15 @@ if __name__ == "__main__":
     t = time()
     pnib_scores = parallel_pr_nibble(pnib_seeds, adj, alpha=args.alpha, epsilon=args.pnib_epsilon)
     t2 = time()
+    print(pnib_scores)
+    
     assert pnib_scores.shape[0] == adj.shape[0]
     assert pnib_scores.shape[1] == len(pnib_seeds)
     pnib_elapsed = time() - t
     # print('parallel_pr_nibble: elapsed = %f' % pnib_elapsed, file=sys.stderr)
     
     print("[Nibble Elapsed Time]: ", (t2 - t))
-
+    exit(0)
     # --
     # Run ISTA
     

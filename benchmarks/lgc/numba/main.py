@@ -21,7 +21,7 @@ import numba
 from numba import jit
 from numba import prange
 
-@jit(nopython=True, parallel=True, nogil=True)
+@jit(nopython=True)
 def func0(seeds, degrees, alpha, epsilon,
           num_nodes, adj_indices, adj_indptr):
 
@@ -31,8 +31,7 @@ def func0(seeds, degrees, alpha, epsilon,
 
     num_seeds = seeds.shape[0]
     
-    out = np.empty((1000, 5157), numba.float64)
-    #out = np.empty((num_seeds, num_nodes), numba.float64) 
+    out = np.empty((num_seeds, num_nodes), numba.float64) 
     for i in range(num_seeds):
         seed = seeds[i]
         p = np.zeros(num_nodes)
@@ -140,7 +139,7 @@ def parallel_pr_nibble(seeds, adj, alpha, epsilon):
 
 def parse_args():
     parser = argparse.ArgumentParser()
-    parser.add_argument('--num-seeds', type=int, default=1000)
+    parser.add_argument('--num-seeds', type=int, default=50)
     parser.add_argument('--alpha', type=float, default=0.15)
     parser.add_argument('--pnib-epsilon', type=float, default=1e-6)
     parser.add_argument('--ista-rho', type=float, default=1e-5)
@@ -148,7 +147,7 @@ def parse_args():
     args = parser.parse_args()
     
     # !! In order to check accuracy, you _must_ use these parameters !!
-    assert args.num_seeds == 1000
+    assert args.num_seeds == 50
     assert args.alpha == 0.15
     assert args.pnib_epsilon == 1e-6
     assert args.ista_rho == 1e-5
@@ -177,12 +176,14 @@ if __name__ == "__main__":
     
     t = time()
     pnib_scores = parallel_pr_nibble(pnib_seeds, adj, alpha=args.alpha, epsilon=args.pnib_epsilon)
+    pnib_elapsed = time() - t
+    print(pnib_scores)
     assert pnib_scores.shape[0] == adj.shape[0]
     assert pnib_scores.shape[1] == len(pnib_seeds)
-    pnib_elapsed = time() - t
+    
     print('parallel_pr_nibble: elapsed = %f' % pnib_elapsed, file=sys.stderr)
 
-    #sys.exit(0)
+    sys.exit(0)
     # --
     # Run ISTA
     

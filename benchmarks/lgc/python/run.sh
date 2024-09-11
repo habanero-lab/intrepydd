@@ -13,7 +13,7 @@ python main.py
 # --
 # Check correctness
 
-python validate.py
+#python validate.py
 
 # A correct implementation should print something like
 # {

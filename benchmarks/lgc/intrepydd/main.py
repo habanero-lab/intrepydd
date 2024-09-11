@@ -61,7 +61,7 @@ def ista(seeds, adj, alpha, rho, iters):
 
 def parse_args():
     parser = argparse.ArgumentParser()
-    parser.add_argument('--num-seeds', type=int, default=1000)  # was 50
+    parser.add_argument('--num-seeds', type=int, default=50)  # was 50
     parser.add_argument('--alpha', type=float, default=0.15)
     parser.add_argument('--pnib-epsilon', type=float, default=1e-6)
     parser.add_argument('--ista-rho', type=float, default=1e-5)
@@ -69,7 +69,7 @@ def parse_args():
     args = parser.parse_args()
     
     # !! In order to check accuracy, you _must_ use these parameters !!
-    assert args.num_seeds == 1000
+    assert args.num_seeds == 50
     assert args.alpha == 0.15
     assert args.pnib_epsilon == 1e-6
     assert args.ista_rho == 1e-5
@@ -97,15 +97,16 @@ if __name__ == "__main__":
     # Run Parallel PR-Nibble
     
     t = time()
-    pnib_scores = parallel_pr_nibble(pnib_seeds, adj, alpha=args.alpha, epsilon=args.pnib_epsilon)
+    pnib_scores = parallel_pr_nibble(pnib_seeds, adj, alpha=args.alpha, epsilon=args.pnib_epsilon)    
     t2 = time()
+    print(pnib_scores)
     assert pnib_scores.shape[0] == adj.shape[0]
     assert pnib_scores.shape[1] == len(pnib_seeds)
     pnib_elapsed = time() - t
     # print('parallel_pr_nibble: elapsed = %f' % pnib_elapsed, file=sys.stderr)
     
     print("[Nibble Elapsed Time]: ", (t2 - t))
-    # sys.exit(0)
+    sys.exit(0)
     # --
     # Run ISTA
     
