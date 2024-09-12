@@ -407,7 +407,8 @@ def get_linker_flags():
         # Anaconda should already have these
         # s += ['-liomp5', '-lmkl_core', '-lmkl_intel_thread',
         #       '-lmkl_intel_lp64', '-pthread']
-        s += "-m64 -L/nethome/tzhou80/anaconda3/lib -Wl,--no-as-needed -lmkl_intel_ilp64 -lmkl_gnu_thread -lmkl_core -lgomp -lpthread -lm -ldl".split()
+        from pathlib import Path
+        s += f"-m64 -L{Path.home()}/anaconda3/lib -Wl,--no-as-needed -lmkl_intel_ilp64 -lmkl_gnu_thread -lmkl_core -lgomp -lpthread -lm -ldl".split()
     
     # for p in used_packages:
     #     flags = packageinfo[p]
