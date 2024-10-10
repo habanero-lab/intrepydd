@@ -4,7 +4,7 @@ import numpy as np
 
 def test_sum():
     import subprocess
-    subprocess.run(["../compiler/pyddc", "func_sum.pydd"])  # Compile func_sum.pydd
+    subprocess.run(["../intrepydd/pyddc", "func_sum.pydd"])  # Compile func_sum.pydd
     import func_sum
     arr_1d = [-15, 5, 0, 7]
     x = np.array(arr_1d) #default datatype on my machine was int64

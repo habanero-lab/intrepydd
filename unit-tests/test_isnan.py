@@ -17,7 +17,7 @@ def python_isnan(x_arr):
 # Called by pytest tool, which automatically calls all test_* functions in test_*.py files in this directory
 def test_isnan():
     import subprocess
-    subprocess.run(["../compiler/pyddc", "func_isnan.pydd"])  # Compile func_isnan.pydd
+    subprocess.run(["../intrepydd/pyddc", "func_isnan.pydd"])  # Compile func_isnan.pydd
     import func_isnan
     # Check that Intrepydd & Python implementations of isnan behave the same
     # Not all test cases will have an equivalent python_* function to compare with

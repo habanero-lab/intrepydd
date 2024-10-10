@@ -11,7 +11,7 @@ def python_logical_or(A, B):
 # Called by pytest tool, which automatically calls all test_* functions in test_*.py files in this directory
 def test_logical_or():
     import subprocess
-    subprocess.run(["../compiler/pyddc", "func_logical_or.pydd"])  # Compile func_logical_or.pydd
+    subprocess.run(["../intrepydd/pyddc", "func_logical_or.pydd"])  # Compile func_logical_or.pydd
     import func_logical_or
     # Check that Intrepydd & Python implementations of logical_or behave the same
     # Not all test cases will have an equivalent python_* function to compare with

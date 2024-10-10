@@ -11,7 +11,7 @@ def python_pow(A, B):
 # Called by pytest tool, which automatically calls all test_* functions in test_*.py files in this directory
 def test_pow():
     import subprocess
-    subprocess.run(["../compiler/pyddc", "func_pow.pydd"])  # Compile func_pow.pydd
+    subprocess.run(["../intrepydd/pyddc", "func_pow.pydd"])  # Compile func_pow.pydd
     import func_pow
     # Check that Intrepydd & Python implementations of pow behave the same
     # Not all test cases will have an equivalent python_* function to compare with

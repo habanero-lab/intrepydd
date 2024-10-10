@@ -4,7 +4,7 @@ import numpy as np
 
 def test_sparse_diags():
     import subprocess
-    subprocess.run(["../compiler/pyddc", "func_sparse_diags.pydd"]) 
+    subprocess.run(["../intrepydd/pyddc", "func_sparse_diags.pydd"]) 
     import func_sparse_diags as M
 
     vec_len = 100

@@ -36,7 +36,7 @@ def op_expand_sub_test():
 
 # Called by pytest tool, which automatically calls all test_* functions in test_*.py files in this directory
 def test_op_expand():
-    subprocess.run(["../compiler/pyddc", "func_op_expand.pydd"])  # Compile func_op_expand.pydd
+    subprocess.run(["../intrepydd/pyddc", "func_op_expand.pydd"])  # Compile func_op_expand.pydd
     
     op_expand_mult_test()
     op_expand_add_test()

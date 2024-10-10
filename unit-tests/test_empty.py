@@ -11,7 +11,7 @@ def python_empty(shape):
 # Called by pytest tool, which automatically calls all test_* functions in test_*.py files in this directory
 def test_empty():
     import subprocess
-    subprocess.run(["../compiler/pyddc", "func_empty.pydd"])  # Compile func_empty.pydd
+    subprocess.run(["../intrepydd/pyddc", "func_empty.pydd"])  # Compile func_empty.pydd
     import func_empty
     # Check that Intrepydd & Python implementations of empty behave the same
     # Not all test cases will have an equivalent python_* function to compare with

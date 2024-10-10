@@ -4,7 +4,7 @@ import numpy as np
 
 def test_int32():
     import subprocess
-    subprocess.run(["../compiler/pyddc", "func_int32.pydd"]) # Compile func_int32.pydd
+    subprocess.run(["../intrepydd/pyddc", "func_int32.pydd"]) # Compile func_int32.pydd
     import func_int32
     f = np.int32(0)
     assert( func_int32.do_int32() == f)

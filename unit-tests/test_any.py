@@ -11,7 +11,7 @@ def python_any(A):
 # Called by pytest tool, which automatically calls all test_* functions in test_*.py files in this directory
 def test_all():
     import subprocess
-    subprocess.run(["../compiler/pyddc", "func_any.pydd"])  # Compile func_any.pydd
+    subprocess.run(["../intrepydd/pyddc", "func_any.pydd"])  # Compile func_any.pydd
     import func_any
     # Check that Intrepydd & Python implementations of any behave the same
     # Not all test cases will have an equivalent python_* function to compare with

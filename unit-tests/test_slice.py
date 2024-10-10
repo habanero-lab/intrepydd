@@ -7,7 +7,7 @@ def python_transpose(arr):
 
 def test_1():
     import subprocess
-    subprocess.run(["../compiler/pyddc", "func_slice.pydd"])  # Compile func_cos.pydd
+    subprocess.run(["../intrepydd/pyddc", "func_slice.pydd"])  # Compile func_cos.pydd
     import func_slice as M
     A = np.array([[-24, 15, 0], [1, 2, -3]])
     print(A)

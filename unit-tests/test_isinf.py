@@ -17,7 +17,7 @@ def python_isinf(x_arr):
 # Called by pytest tool, which automatically calls all test_* functions in test_*.py files in this directory
 def test_isinf():
     import subprocess
-    subprocess.run(["../compiler/pyddc", "func_isinf.pydd"])  # Compile func_isinf.pydd
+    subprocess.run(["../intrepydd/pyddc", "func_isinf.pydd"])  # Compile func_isinf.pydd
     import func_isinf
     # Check that Intrepydd & Python implementations of isinf behave the same
     # Not all test cases will have an equivalent python_* function to compare with

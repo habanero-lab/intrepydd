@@ -11,7 +11,7 @@ def python_where(A):
 # Called by pytest tool, which automatically calls all test_* functions in test_*.py files in this directory
 def test_where():
     import subprocess
-    subprocess.run(["../compiler/pyddc", "func_where.pydd"])  # Compile func_add.pydd
+    subprocess.run(["../intrepydd/pyddc", "func_where.pydd"])  # Compile func_add.pydd
     import func_where
     # Check that Intrepydd & Python implementations of add behave the same
     # Not all test cases will have an equivalent python_* function to compare with

@@ -11,7 +11,7 @@ def python_ge(A, B):
 # Called by pytest tool, which automatically calls all test_* functions in test_*.py files in this directory
 def test_ge():
     import subprocess
-    subprocess.run(["../compiler/pyddc", "func_ge.pydd"])  # Compile func_ge.pydd
+    subprocess.run(["../intrepydd/pyddc", "func_ge.pydd"])  # Compile func_ge.pydd
     import func_ge
     # Check that Intrepydd & Python implementations of ge behave the same
     # Not all test cases will have an equivalent python_* function to compare with

@@ -11,7 +11,7 @@ def python_logical_not(A):
 # Called by pytest tool, which automatically calls all test_* functions in test_*.py files in this directory
 def test_logical_not():
     import subprocess
-    subprocess.run(["../compiler/pyddc", "func_logical_not.pydd"])  # Compile func_logical_not.pydd
+    subprocess.run(["../intrepydd/pyddc", "func_logical_not.pydd"])  # Compile func_logical_not.pydd
     import func_logical_not
     # Check that Intrepydd & Python implementations of logical_not behave the same
     # Not all test cases will have an equivalent python_* function to compare with

@@ -17,7 +17,7 @@ def python_acos(x_arr):
 # Called by pytest tool, which automatically calls all test_* functions in test_*.py files in this directory
 def test_acos():
     import subprocess
-    subprocess.run(["../compiler/pyddc", "func_acos.pydd"])  # Compile func_acos.pydd
+    subprocess.run(["../intrepydd/pyddc", "func_acos.pydd"])  # Compile func_acos.pydd
     import func_acos
     # Check that Intrepydd & Python implementations of acos behave the same
     # Not all test cases will have an equivalent python_* function to compare with

@@ -7,7 +7,7 @@ import os
 
 def get_module():
     pyddname = os.path.basename(__file__).replace('test', 'func') + 'dd'
-    out = subprocess.run(["../compiler/pyddc", pyddname], stdout=subprocess.PIPE)
+    out = subprocess.run(["../intrepydd/pyddc", pyddname], stdout=subprocess.PIPE)
     print(out.stdout)
     m = importlib.import_module(pyddname.replace('.pydd', ''))
     return m

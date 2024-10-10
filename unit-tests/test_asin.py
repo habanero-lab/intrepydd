@@ -18,7 +18,7 @@ def python_asin(x_arr):
 # Called by pytest tool, which automatically calls all test_* functions in test_*.py files in this directory
 def test_asin():
     import subprocess
-    subprocess.run(["../compiler/pyddc", "func_asin.pydd"])  # Compile func_asin.pydd
+    subprocess.run(["../intrepydd/pyddc", "func_asin.pydd"])  # Compile func_asin.pydd
     import func_asin
     # Check that Intrepydd & Python implementations of asin behave the same
     # Not all test cases will have an equivalent python_* function to compare with

@@ -11,7 +11,7 @@ def python_lt(A, B):
 # Called by pytest tool, which automatically calls all test_* functions in test_*.py files in this directory
 def test_lt():
     import subprocess
-    subprocess.run(["../compiler/pyddc", "func_lt.pydd"])  # Compile func_lt.pydd
+    subprocess.run(["../intrepydd/pyddc", "func_lt.pydd"])  # Compile func_lt.pydd
     import func_lt
     # Check that Intrepydd & Python implementations of lt behave the same
     # Not all test cases will have an equivalent python_* function to compare with

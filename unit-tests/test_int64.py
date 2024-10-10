@@ -4,7 +4,7 @@ import numpy as np
 
 def test_int64():
     import subprocess
-    subprocess.run(["../compiler/pyddc", "func_int64.pydd"]) # Compile func_int64.pydd
+    subprocess.run(["../intrepydd/pyddc", "func_int64.pydd"]) # Compile func_int64.pydd
     import func_int64
 
     f = (np.int64)(0.0)

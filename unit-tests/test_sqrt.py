@@ -17,7 +17,7 @@ def python_sqrt(x_arr):
 # Called by pytest tool, which automatically calls all test_* functions in test_*.py files in this directory
 def test_sqrt():
     import subprocess
-    subprocess.run(["../compiler/pyddc", "func_sqrt.pydd"])  # Compile func_sqrt.pydd
+    subprocess.run(["../intrepydd/pyddc", "func_sqrt.pydd"])  # Compile func_sqrt.pydd
     import func_sqrt
     # Check that Intrepydd & Python implementations of sqrt behave the same
     # Not all test cases will have an equivalent python_* function to compare with

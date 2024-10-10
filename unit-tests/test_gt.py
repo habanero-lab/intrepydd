@@ -11,7 +11,7 @@ def python_gt(A, B):
 # Called by pytest tool, which automatically calls all test_* functions in test_*.py files in this directory
 def test_gt():
     import subprocess
-    subprocess.run(["../compiler/pyddc", "func_gt.pydd"])  # Compile func_gt.pydd
+    subprocess.run(["../intrepydd/pyddc", "func_gt.pydd"])  # Compile func_gt.pydd
     import func_gt
     # Check that Intrepydd & Python implementations of gt behave the same
     # Not all test cases will have an equivalent python_* function to compare with

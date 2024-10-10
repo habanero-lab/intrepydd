@@ -7,7 +7,7 @@ def python_prod(arr):
 
 def test_prod():
     import subprocess
-    subprocess.run(["../compiler/pyddc", "func_prod.pydd"])  # Compile func_prod.pydd
+    subprocess.run(["../intrepydd/pyddc", "func_prod.pydd"])  # Compile func_prod.pydd
     import func_prod
     arr_1d = [-15, -5, 2, 7]
     x = np.array(arr_1d) #default datatype on my machine was int64

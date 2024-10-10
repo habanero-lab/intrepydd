@@ -12,7 +12,7 @@ def python_log(x_arr, y_arr):
 # Called by pytest tool, which automatically calls all test_* functions in test_*.py files in this directory
 def test_exp():
     import subprocess
-    subprocess.run(["../compiler/pyddc", "func_log.pydd"])  # Compile func_log.pydd
+    subprocess.run(["../intrepydd/pyddc", "func_log.pydd"])  # Compile func_log.pydd
     import func_log
 
     # Check that Intrepydd & Python implementations of exp behave the same

@@ -13,7 +13,7 @@ def python_argmin(x_arr):
 # Called by pytest tool, which automatically calls all test_* functions in test_*.py files in this directory
 def test_argmin():
     import subprocess
-    subprocess.run(["../compiler/pyddc", "func_argmin.pydd"])  # Compile func_argmin.pydd
+    subprocess.run(["../intrepydd/pyddc", "func_argmin.pydd"])  # Compile func_argmin.pydd
     import func_argmin
     # Check that Intrepydd & Python implementations of argmin behave the same
     # Not all test cases will have an equivalent python_* function to compare with

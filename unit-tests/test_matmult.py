@@ -11,7 +11,7 @@ def python_matmult(A, B):
 # Called by pytest tool, which automatically calls all test_* functions in test_*.py files in this directory
 def test_matmult():
     import subprocess
-    subprocess.run(["../compiler/pyddc", "func_matmult.pydd"])  # Compile func_matmult.pydd
+    subprocess.run(["../intrepydd/pyddc", "func_matmult.pydd"])  # Compile func_matmult.pydd
     import func_matmult
     # Check that Intrepydd & Python implementations of matmult behave the same
     # Not all test cases will have an equivalent python_* function to compare with

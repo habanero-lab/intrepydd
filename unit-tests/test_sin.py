@@ -17,7 +17,7 @@ def python_sin(x_arr):
 # Called by pytest tool, which automatically calls all test_* functions in test_*.py files in this directory
 def test_sin():
     import subprocess
-    subprocess.run(["../compiler/pyddc", "func_sin.pydd"])  # Compile func_sin.pydd
+    subprocess.run(["../intrepydd/pyddc", "func_sin.pydd"])  # Compile func_sin.pydd
     import func_sin
     # Check that Intrepydd & Python implementations of sin behave the same
     x_arr =  [[-1.1, 2.3, -4],[-2, 0, 3]]

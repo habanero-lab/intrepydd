@@ -4,7 +4,7 @@ import numpy as np
 
 def test_float32():
     import subprocess
-    subprocess.run(["../compiler/pyddc", "func_float32.pydd"]) # Compile func_float32.pydd
+    subprocess.run(["../intrepydd/pyddc", "func_float32.pydd"]) # Compile func_float32.pydd
     import func_float32
     f = (np.float32)(0.0)
     assert( func_float32.do_float32() == f)

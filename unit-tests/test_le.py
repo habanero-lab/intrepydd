@@ -11,7 +11,7 @@ def python_le(A, B):
 # Called by pytest tool, which automatically calls all test_* functions in test_*.py files in this directory
 def test_le():
     import subprocess
-    subprocess.run(["../compiler/pyddc", "func_le.pydd"])  # Compile func_le.pydd
+    subprocess.run(["../intrepydd/pyddc", "func_le.pydd"])  # Compile func_le.pydd
     import func_le
     # Check that Intrepydd & Python implementations of le behave the same
     # Not all test cases will have an equivalent python_* function to compare with

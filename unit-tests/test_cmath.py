@@ -8,7 +8,7 @@ import os
 
 def test_1():
     pyddname = os.path.basename(__file__).replace('test', 'func') + 'dd'    
-    out = subprocess.run(["../compiler/pyddc", pyddname], stdout=subprocess.PIPE)
+    out = subprocess.run(["../intrepydd/pyddc", pyddname], stdout=subprocess.PIPE)
     M = importlib.import_module(pyddname.replace('.pydd', ''))
     assert math.exp(1.1) == M.exp(1.1)
     assert math.log(1.1) == M.log(1.1) 

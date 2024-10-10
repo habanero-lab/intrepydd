@@ -11,7 +11,7 @@ def python_eq(A, B):
 # Called by pytest tool, which automatically calls all test_* functions in test_*.py files in this directory
 def test_eq():
     import subprocess
-    subprocess.run(["../compiler/pyddc", "func_eq.pydd"])  # Compile func_eq.pydd
+    subprocess.run(["../intrepydd/pyddc", "func_eq.pydd"])  # Compile func_eq.pydd
     import func_eq
     # Check that Intrepydd & Python implementations of eq behave the same
     # Not all test cases will have an equivalent python_* function to compare with

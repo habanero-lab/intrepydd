@@ -11,7 +11,7 @@ def python_logical_xor(A, B):
 # Called by pytest tool, which automatically calls all test_* functions in test_*.py files in this directory
 def test_logical_xor():
     import subprocess
-    subprocess.run(["../compiler/pyddc", "func_logical_xor.pydd"])  # Compile func_logical_xor.pydd
+    subprocess.run(["../intrepydd/pyddc", "func_logical_xor.pydd"])  # Compile func_logical_xor.pydd
     import func_logical_xor
     # Check that Intrepydd & Python implementations of logical_xor behave the same
     # Not all test cases will have an equivalent python_* function to compare with

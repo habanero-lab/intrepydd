@@ -1,7 +1,6 @@
 import argparse
 import configparser
 import typed_ast.ast3 as ast
-from logger import Logger
 import os
 import platform
 import sys
@@ -14,7 +13,6 @@ import astutils
 import utils
 import logging
 
-log1 = Logger('log1.xml')
 
 class UnsupportedException(Exception):
     def __init__(self,*args,**kwargs):

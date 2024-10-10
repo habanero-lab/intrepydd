@@ -4,7 +4,7 @@ import numpy as np
 
 def test_float64():
     import subprocess
-    subprocess.run(["../compiler/pyddc", "func_float64.pydd"]) # Compile func_float64.pydd
+    subprocess.run(["../intrepydd/pyddc", "func_float64.pydd"]) # Compile func_float64.pydd
     import func_float64
 
     f = (np.float64)(0.0)

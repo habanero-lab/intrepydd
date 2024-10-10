@@ -7,7 +7,7 @@ def python_transpose(arr):
 
 def test_transpose():
     import subprocess
-    subprocess.run(["../compiler/pyddc", "func_transpose.pydd"])  # Compile func_cos.pydd
+    subprocess.run(["../intrepydd/pyddc", "func_transpose.pydd"])  # Compile func_cos.pydd
     import func_transpose as M
     arr = [[-24, 15, 0], [1, 2, -3]]
     y = np.array(arr)

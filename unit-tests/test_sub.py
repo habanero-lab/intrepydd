@@ -4,7 +4,7 @@ import numpy as np
 
 def test_sub():
     import subprocess
-    subprocess.run(["../compiler/pyddc", "func_sub.pydd"])  # Compile func_sub.pydd
+    subprocess.run(["../intrepydd/pyddc", "func_sub.pydd"])  # Compile func_sub.pydd
     import func_sub
     arr1 = [[-24, 15, 0], [1, 2, -3]]
     arr2 = [[-1, -14, 5], [7, 1, 0]]

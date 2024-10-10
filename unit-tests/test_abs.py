@@ -16,7 +16,7 @@ def python_abs(x_arr):
 # Called by pytest tool, which automatically calls all test_* functions in test_*.py files in this directory
 def test_abs():
     import subprocess
-    subprocess.run(["../compiler/pyddc", "func_abs.pydd"])  # Compile func_abs.pydd
+    subprocess.run(["../intrepydd/pyddc", "func_abs.pydd"])  # Compile func_abs.pydd
     import func_abs
     # Check that Intrepydd & Python implementations of abs behave the same
     # Not all test cases will have an equivalent python_* function to compare with

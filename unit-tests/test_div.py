@@ -4,7 +4,7 @@ import numpy as np
 
 def test_div():
     import subprocess
-    subprocess.run(["../compiler/pyddc", "func_div.pydd"]) # Compile func_div.pydd
+    subprocess.run(["../intrepydd/pyddc", "func_div.pydd"]) # Compile func_div.pydd
     import func_div
     arr1 = np.array([[-24, 15, 0], [0, -4, 2]], dtype = np.int32)
     arr2 = np.array([[-1, -14, 5], [-3, 7, 1]], dtype = np.int32)

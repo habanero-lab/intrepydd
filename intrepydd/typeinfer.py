@@ -28,20 +28,17 @@ class TypeInferer(ast.NodeVisitor):
         self.typemap = N.localtypes
         self.cur_func = N
         self.cur_func.has_pfor = False
-        glb.log1.open_tag('Function')
-        glb.log1.print('name: ' + N.name)
+       
         self.do_func_args(N)
         #self.gen_func_header(N)
         self.do_func_body(N)
         N.typemap = self.typemap
         #print(self.typemap)
-        glb.log1.close_tag('Function')
         #self.generic_visit(node)
 
         glb.cpp_module.add_function(N)    
         
     def do_func_args(self, N: ast.FunctionDef):
-        glb.log1.open_tag('Args')
         pendings = []
         for arg in N.args.args:
             if not arg.annotation:
@@ -62,7 +59,6 @@ class TypeInferer(ast.NodeVisitor):
                 print('`%s`'%arg, end='')
             print()
             print('In function `%s`' % self.get_cur_func.name)    
-        glb.log1.close_tag('Args')
 
     # def record_type(self, name, ty):
     #     self.typemap[name] = ty
@@ -90,8 +86,6 @@ class TypeInferer(ast.NodeVisitor):
         return False    
 
     def do_node(self, N):
-        glb.log1.open_tag('Node')
-        glb.log1.print(ast.dump(N))
         if isinstance(N, ast.Assign):
             self.do_Assign(N)
         elif isinstance(N, ast.AnnAssign):
@@ -136,8 +130,6 @@ class TypeInferer(ast.NodeVisitor):
     
         else:
             pass
-
-        glb.log1.close_tag('Node')
                 
     # def get_type(self, N):
     #     if not hasattr(N, 'type'):

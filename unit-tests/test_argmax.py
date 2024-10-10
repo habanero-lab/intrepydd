@@ -13,7 +13,7 @@ def python_argmax(x_arr):
 # Called by pytest tool, which automatically calls all test_* functions in test_*.py files in this directory
 def test_argmax():
     import subprocess
-    subprocess.run(["../compiler/pyddc", "func_argmax.pydd"])  # Compile func_argmax.pydd
+    subprocess.run(["../intrepydd/pyddc", "func_argmax.pydd"])  # Compile func_argmax.pydd
     import func_argmax
     # Check that Intrepydd & Python implementations of argmax behave the same
     # Not all test cases will have an equivalent python_* function to compare with

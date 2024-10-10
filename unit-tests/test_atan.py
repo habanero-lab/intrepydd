@@ -17,7 +17,7 @@ def python_atan(x_arr):
 # Called by pytest tool, which automatically calls all test_* functions in test_*.py files in this directory
 def test_atan():
     import subprocess
-    subprocess.run(["../compiler/pyddc", "func_atan.pydd"])  # Compile func_atan.pydd
+    subprocess.run(["../intrepydd/pyddc", "func_atan.pydd"])  # Compile func_atan.pydd
     import func_atan
     # Check that Intrepydd & Python implementations of atan behave the same
     # Not all test cases will have an equivalent python_* function to compare with

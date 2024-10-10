@@ -11,7 +11,7 @@ def python_neq(A, B):
 # Called by pytest tool, which automatically calls all test_* functions in test_*.py files in this directory
 def test_neq():
     import subprocess
-    subprocess.run(["../compiler/pyddc", "func_neq.pydd"])  # Compile func_neq.pydd
+    subprocess.run(["../intrepydd/pyddc", "func_neq.pydd"])  # Compile func_neq.pydd
     import func_neq
     # Check that Intrepydd & Python implementations of neq behave the same
     # Not all test cases will have an equivalent python_* function to compare with

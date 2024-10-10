@@ -17,7 +17,7 @@ def python_tan(x_arr):
 # Called by pytest tool, which automatically calls all test_* functions in test_*.py files in this directory
 def test_tan():
     import subprocess
-    subprocess.run(["../compiler/pyddc", "func_tan.pydd"])  # Compile func_tan.pydd
+    subprocess.run(["../intrepydd/pyddc", "func_tan.pydd"])  # Compile func_tan.pydd
     import func_tan
     # Check that Intrepydd & Python implementations of tan behave the same
     x_arr =  [[0, 1.57, 1.58],[-1.57, -1.58, 3]]

@@ -11,7 +11,7 @@ def python_allclose(A, u):
 # Callcloseed by pytest tool, which automatically calls all test_* functions in test_*.py files in this directory
 def test_allclose():
     import subprocess
-    subprocess.run(["../compiler/pyddc", "func_allclose.pydd"])  # Compile func_allclose.pydd
+    subprocess.run(["../intrepydd/pyddc", "func_allclose.pydd"])  # Compile func_allclose.pydd
     import func_allclose
     # Check that Intrepydd & Python implementations of allclose behave the same
     # Not all test cases will have an equivalent python_* function to compare with

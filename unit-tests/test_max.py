@@ -11,7 +11,7 @@ def python_max(x_arr):
 # Called by pytest tool, which automatically calls all test_* functions in test_*.py files in this directory
 def test_max():
     import subprocess
-    subprocess.run(["../compiler/pyddc", "func_max.pydd"])  # Compile func_argmax.pydd
+    subprocess.run(["../intrepydd/pyddc", "func_max.pydd"])  # Compile func_argmax.pydd
     import func_max
     
     # Check that Intrepydd & Python implementations of max behave the same

@@ -16,7 +16,7 @@ def python_minus(x_arr):
 # Called by pytest tool, which automatically calls all test_* functions in test_*.py files in this directory
 def test_minus():
     import subprocess
-    subprocess.run(["../compiler/pyddc", "func_minus.pydd"])  # Compile func_minus.pydd
+    subprocess.run(["../intrepydd/pyddc", "func_minus.pydd"])  # Compile func_minus.pydd
     import func_minus
     # Check that Intrepydd & Python implementations of minus behave the same
     x_arr =  [[0, 1.57, 57],[-1.57, 5.7e-12, 3]]

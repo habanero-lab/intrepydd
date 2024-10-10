@@ -11,7 +11,7 @@ def python_arraysub(A, i, j):
 # Called by pytest tool, which automatically calls all test_* functions in test_*.py files in this directory
 def test_arraysub():
     import subprocess
-    subprocess.run(["../compiler/pyddc", "func_arraysub.pydd"])  # Compile func_arraysub.pydd
+    subprocess.run(["../intrepydd/pyddc", "func_arraysub.pydd"])  # Compile func_arraysub.pydd
     import func_arraysub
     # Check that Intrepydd & Python implementations of arraysub behave the same
     # Not all test cases will have an equivalent python_* function to compare with

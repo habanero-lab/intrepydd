@@ -6,7 +6,7 @@ import numpy as np
 # Called by pytest tool, which automatically calls all test_* functions in test_*.py files in this directory
 def test_maximum():
     import subprocess
-    subprocess.run(["../compiler/pyddc", "func_maximum.pydd"])  # Compile func_argmax.pydd
+    subprocess.run(["../intrepydd/pyddc", "func_maximum.pydd"])  # Compile func_argmax.pydd
     import func_maximum
     
     data_int64 = np.random.randint(10, size=(10,10))

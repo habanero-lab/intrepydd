@@ -6,7 +6,7 @@ import subprocess
 
 # Called by pytest tool, which automatically calls all test_* functions in test_*.py files in this directory
 def test_1():
-    out = subprocess.run(["../compiler/pyddc", "func_import.pydd"], stdout=subprocess.PIPE) 
+    out = subprocess.run(["../intrepydd/pyddc", "func_import.pydd"], stdout=subprocess.PIPE) 
     import func_import as M
     M.f1()
     print(out.stdout)

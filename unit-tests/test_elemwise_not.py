@@ -11,7 +11,7 @@ def python_elemwise_not(A):
 # Called by pytest tool, which automatically calls all test_* functions in test_*.py files in this directory
 def test_elemwise_not():
     import subprocess
-    subprocess.run(["../compiler/pyddc", "func_elemwise_not.pydd"])  # Compile func_elemwise_not.pydd
+    subprocess.run(["../intrepydd/pyddc", "func_elemwise_not.pydd"])  # Compile func_elemwise_not.pydd
     import func_elemwise_not
     # Check that Intrepydd & Python implementations of elemwise_not behave the same
     # Not all test cases will have an equivalent python_* function to compare with
