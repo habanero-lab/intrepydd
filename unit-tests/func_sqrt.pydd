@@ -1,6 +1,0 @@
-# Intrepydd code to test sqrt function.
-# Author: Sriraj (sriraj@gatech.edu)
-
-def func(x: Array(int32, 2)) -> Array(float64, 2):
-    a = sqrt(x)
-    return a

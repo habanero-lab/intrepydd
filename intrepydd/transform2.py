@@ -1,11 +1,11 @@
 import typed_ast.ast3 as ast
-import libfuncs
-import glb
-import scalarpriv
-import licmarray
-import licmast
-import opexpansion
-import arrayopt
+from . import libfuncs
+from . import glb
+from . import scalarpriv
+from . import licmarray
+from . import licmast
+from . import opexpansion
+from . import arrayopt
 
 class TypedTransformer(ast.NodeVisitor):
     def visit(self, tree):

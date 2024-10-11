@@ -4,14 +4,14 @@ import typed_ast.ast3 as ast
 import os
 import platform
 import sys
-import mytypes
-import libfuncs
 import importlib
 import traceback
-from symboltable import symtab
-import astutils
-import utils
 import logging
+from . import mytypes
+from . import libfuncs
+from .symboltable import symtab
+from . import astutils
+from . import utils
 
 
 class UnsupportedException(Exception):
@@ -54,7 +54,6 @@ def init():
     '''
     Set up global stuff
     '''
-    parse_args()
     setup_loggers()
 
 

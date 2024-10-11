@@ -1,7 +1,7 @@
 from enum import Enum
 import typed_ast.ast3 as ast
-import libfuncs
-import mytypes
+from . import libfuncs
+from . import mytypes
 
 '''
 Support def use analysis.

@@ -1,5 +1,5 @@
-import libfuncs
-from utils import deprecated
+from . import libfuncs
+from .utils import deprecated
 
 class CallSig(object):
     def __init__(self, module, funcname, arg_types):

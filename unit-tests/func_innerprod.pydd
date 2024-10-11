@@ -1,7 +1,0 @@
-# Intrepydd code to test innerprod function.
-# Author: Sriraj (sriraj@gatech.edu)
-
-def func(A: Array(float64, 1), B: Array(float64, 1)) -> float64:
-    C = innerprod(A, B)
-    return C
-

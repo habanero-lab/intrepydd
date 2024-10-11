@@ -3,12 +3,12 @@
 import typed_ast.ast3 as ast
 import sys
 import os
-from typeinfer import TypeInferer
-from codegen import ModuleGen
-from scanner import Scanner
-from transform1 import TypeFreeTransformer
-from transform2 import TypedTransformer
-import glb
+from .typeinfer import TypeInferer
+from .codegen import ModuleGen
+from .scanner import Scanner
+from .transform1 import TypeFreeTransformer
+from .transform2 import TypedTransformer
+from . import glb
 
 
 def get_src_as_str():

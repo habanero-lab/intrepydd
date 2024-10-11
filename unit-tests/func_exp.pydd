@@ -1,6 +1,0 @@
-# Intrepydd code to test exp function.
-# Author: Caleb Voss (cvoss@gatech.edu)
-
-def func(x: Array(float64, 2)) -> Array(float64, 2):
-    a = exp(x)
-    return a

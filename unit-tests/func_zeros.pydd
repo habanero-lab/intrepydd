@@ -1,7 +1,0 @@
-# Intrepydd code to test zeros function.
-# Author: Akihiro Hayashi (ahayashi@rice.edu)
-
-def func(shape: int) -> Array(int64):
-    C = zeros(shape, int64())
-    r = argmin(C)
-    return C

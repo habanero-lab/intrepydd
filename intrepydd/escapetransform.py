@@ -3,14 +3,14 @@ import typed_ast.ast3 as ast
 from pprint import pprint
 import traceback
 
-import mytypes
-import glb
-import utils
-import libfuncs
-from symboltable import symtab
-from glb import UnhandledNodeException
-from glb import dump
-from astutils import *
+from . import mytypes
+from . import glb
+from . import utils
+from . import libfuncs
+from .symboltable import symtab
+from .glb import UnhandledNodeException
+from .glb import dump
+from .astutils import *
 
 
 class AllocHoistTransformer(ast.NodeTransformer):

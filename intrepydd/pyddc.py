@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 
-import launcher
-import glb
+from . import launcher
+from . import glb
 import cppimport
 import sys
 import os, errno
@@ -82,9 +82,12 @@ def create_indented_cpp(filename):
     newfile.close()
     os.rename(newname, filename)
 
-    
-if __name__ == "__main__":
-    #glb.parse_args()
+def compile(file):
+    sys.argv[0] = file
+    main()
+
+def main():
+    glb.parse_args()
     glb.init()
     os.chdir(glb.get_filepath())
 
@@ -138,5 +141,6 @@ if __name__ == "__main__":
 
             sys.exit(ret)            
 
-
-
+    
+if __name__ == "__main__":
+    main()

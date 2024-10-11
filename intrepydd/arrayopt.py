@@ -1,8 +1,8 @@
 from enum import Enum
 import typed_ast.ast3 as ast
-import glb
-import libfuncs
-import mytypes
+from . import glb
+from . import libfuncs
+from . import mytypes
 
 '''
 Sparse and dense array optimizations.

@@ -1,7 +1,7 @@
 from enum import Enum
 import typed_ast.ast3 as ast
-import libfuncs
-import defuse
+from . import libfuncs
+from . import defuse
 
 '''
 Support scalar privatization for loop parallelization.

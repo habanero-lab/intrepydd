@@ -1,6 +1,0 @@
-# Intrepydd code to test exp function.
-# Author: Mang Yu (mangyu2@illinois.edu)
-
-def func(A: Array(float64, 2), B: Array(int32, 2)) -> Array(float64, 2):
-    C = log(A, B)
-    return C

@@ -1,15 +1,15 @@
 import sys
 import typed_ast.ast3 as ast
 from pprint import pprint
-import mytypes
-import glb
-import libfuncs
-import astutils
-from glb import UnhandledNodeException
-from symboltable import symtab
-from licmarray import get_num_array_dim
-from utils import deprecated
-import utils
+from . import mytypes
+from . import glb
+from . import libfuncs
+from . import astutils
+from .glb import UnhandledNodeException
+from .symboltable import symtab
+from .licmarray import get_num_array_dim
+from .utils import deprecated
+from . import utils
 
 
 def dump(N):

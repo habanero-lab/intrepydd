@@ -1,6 +1,0 @@
-# Intrepydd code to test minus function.
-# Author: Caleb Voss (cvoss@gatech.edu)
-
-def func(x: Array(float64, 2)) -> Array(float64, 2):
-    a = minus(x)
-    return a

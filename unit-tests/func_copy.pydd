@@ -1,4 +1,0 @@
-# Author: Tong Zhou (tz@gatech.edu)
-
-def f0(a: Array()):
-    return copy(a)

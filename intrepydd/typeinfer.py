@@ -3,15 +3,15 @@ import typed_ast.ast3 as ast
 from pprint import pprint
 import traceback
 
-import mytypes
-from codegen import ModuleGen
-import glb
-import utils
-import libfuncs
-from symboltable import symtab
-from glb import UnhandledNodeException
-from glb import dump
-from symboltable import CallSig
+from . import mytypes
+from .codegen import ModuleGen
+from . import glb
+from . import utils
+from . import libfuncs
+from .symboltable import symtab
+from .glb import UnhandledNodeException
+from .glb import dump
+from .symboltable import CallSig
 
 class TypeInferer(ast.NodeVisitor):
     def __init__(self):

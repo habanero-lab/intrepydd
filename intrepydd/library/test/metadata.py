@@ -1,4 +1,4 @@
-import mytypes
+from . import mytypes
 
 funcinfo = {
     'id': (mytypes.int32, 1),

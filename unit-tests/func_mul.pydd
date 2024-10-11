@@ -1,6 +1,0 @@
-#Intrepydd code to test mul function (elementwise).
-#Author: Armand Behroozi (armandb@umich.edu)
-
-def mul_wrapper(arr1: Array(int64), arr2: Array(int64) ) -> Array(int64):
-    result = mul(arr1, arr2)
-    return result

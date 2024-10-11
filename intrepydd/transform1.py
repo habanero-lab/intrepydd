@@ -1,6 +1,6 @@
 import typed_ast.ast3 as ast
-import libfuncs
-import glb
+from . import libfuncs
+from . import glb
 '''
 Support AST transformations that are independent from type information.
 
@@ -46,7 +46,7 @@ class TypeFreeTransformer(ast.NodeTransformer):
         return N
 
     def visit_Attribute(self, N):
-        if N.attr is 'T':
+        if N.attr == 'T':
             if verbose_level >= 1:
                 print('[Verbose] found Attribute to convert into global func: transpose')
 

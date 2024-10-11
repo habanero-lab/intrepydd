@@ -1,8 +1,8 @@
-import glb
-from symboltable import symtab
-from glb import dump
-import mytypes
-import utils
+from . import glb
+from .symboltable import symtab
+from .glb import dump
+from . import mytypes
+from . import utils
 import typed_ast.ast3 as ast
 
 class Scanner(ast.NodeVisitor):

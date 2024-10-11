@@ -1,8 +1,9 @@
 import warnings
-import mytypes
-import typed_ast.ast3 as ast
-import glb
 import logging
+import typed_ast.ast3 as ast
+from . import mytypes
+from . import glb
+
 #from glb import dump
 
 def deprecated(message):

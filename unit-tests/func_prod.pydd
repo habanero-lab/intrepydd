@@ -1,6 +1,0 @@
-#Intrepydd code to test prod function (Reduction).
-#Author: Armand Behroozi (armandb@umich.edu)
-
-def prod_wrapper(arr: Array(int64)) -> int64:
-    result = prod(arr)
-    return result

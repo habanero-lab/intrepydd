@@ -4,15 +4,15 @@ from pprint import pprint
 import traceback
 import logging
 
-import mytypes as types
-import glb
-import utils
-import libfuncs
-from symboltable import symtab
-from glb import UnhandledNodeException
-from glb import dump
-from astutils import *
-import utils
+from . import mytypes as types
+from . import glb
+from . import utils
+from . import libfuncs
+from .symboltable import symtab
+from .glb import UnhandledNodeException
+from .glb import dump
+from .astutils import *
+from . import utils
 import defuse
 
 

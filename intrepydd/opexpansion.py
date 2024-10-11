@@ -1,8 +1,8 @@
-import defuse
+from . import defuse
 import typed_ast.ast3 as ast
-import mytypes
-from utils import get_operator_expansion_func
-import glb
+from . import mytypes
+from .utils import get_operator_expansion_func
+from . import glb
 
 ### Options ###
 # 0: Nothing, 1: Debug

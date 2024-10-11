@@ -1,5 +1,5 @@
-import mytypes
-import glb
+from . import mytypes
+from . import glb
 
 # Record some info for cpp functions
 

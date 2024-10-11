@@ -1,9 +1,9 @@
 from enum import Enum
 import typed_ast.ast3 as ast
-import libfuncs
-import mytypes
-import defuse
-import arrayopt
+from . import libfuncs
+from . import mytypes
+from . import defuse
+from . import arrayopt
 
 '''
 Loop Invariant Code Motion for AST-level expressions (general)

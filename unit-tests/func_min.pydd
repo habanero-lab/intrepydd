@@ -1,6 +1,0 @@
-#Intrepydd code to test min function.
-#Author: Armand Behroozi (armandb@umich.edu)
-
-def min_wrapper(arr: Array(float64)) -> float64:
-    result = min(arr)
-    return result
