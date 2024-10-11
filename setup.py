@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 setup(
     name="intrepydd",                  # Name of the package
-    version="0.1.5",                    # Version
+    version="0.1.8",                    # Version
     author="Tong Zhou",                 # Your name
     author_email="zt9465@gmail.com", # Your email
     description="An implementation of the Intrepydd compiler", # Short description
@@ -16,5 +16,4 @@ setup(
         "Operating System :: OS Independent",
     ],
     python_requires='>=3.6',            # Minimum Python version requirement
-    install_requires=["typed_ast",]
 )

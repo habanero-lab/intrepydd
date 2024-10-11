@@ -13,13 +13,16 @@ def Array(ty, ndim):
     return
 
 def compile_from_file(file, args):
-    sys.argv += [file] + args
+    sys.argv = sys.argv[:1]  # to make it work when hit "compile" multiple times in the web version
+    sys.argv += [file] + args + ["-v"]
+    #print(sys.argv)
     glb.parse_args()
+    #print(glb.args)
     glb.init()
     #os.chdir(glb.get_filepath())
     launcher.main()
 
-def compile_from_src(src, dense_array_opt=False, sparse_array_opt=False, licm=False, slice_opt=False):
+def compile_from_src(src, no_cfg=False, dense_array_opt=False, sparse_array_opt=False, licm=False, slice_opt=False):
     filename = './mykernel.pydd'
     p = Path(filename)
     p.write_text(src)
@@ -33,7 +36,10 @@ def compile_from_src(src, dense_array_opt=False, sparse_array_opt=False, licm=Fa
     if slice_opt:
         args.append('-slice_opt')
     compile_from_file(filename, args)
-    return Path(filename.replace('.pydd', '.cpp')).read_text()
+    code = Path(filename.replace('.pydd', '.cpp')).read_text()
+    if no_cfg and '%>\n' in code:
+        code = code.split('%>\n')[1].strip()
+    return code
 
 def compile(fn, dense_array_opt=False, sparse_array_opt=False, licm=False, slice_opt=False):
     source_code = inspect.getsource(fn)
