@@ -54,6 +54,10 @@ def init():
     '''
     Set up global stuff
     '''
+    global args, options, func_versions
+    options = {}
+    func_versions = {}
+    parse_args()
     setup_loggers()
 
 
@@ -69,7 +73,7 @@ def setup_loggers():
     
         
 def parse_args():
-    global args, opt_level, func_versions
+    global args, options, func_versions
     desc ='''Compiles an Intrepydd program into native code that can be imported as a Python module.
     The command-line options below are for experimental features under development.
     '''

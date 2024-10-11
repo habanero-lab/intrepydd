@@ -15,10 +15,9 @@ def Array(ty, ndim):
 def compile_from_file(file, args):
     sys.argv = sys.argv[:1]  # to make it work when hit "compile" multiple times in the web version
     sys.argv += [file] + args + ["-v"]
-    #print(sys.argv)
-    glb.parse_args()
-    #print(glb.args)
     glb.init()
+    
+    #print(glb.args)
     #os.chdir(glb.get_filepath())
     launcher.main()
 

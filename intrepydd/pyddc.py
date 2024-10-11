@@ -87,7 +87,6 @@ def compile(file):
     main()
 
 def main():
-    glb.parse_args()
     glb.init()
     os.chdir(glb.get_filepath())
 
