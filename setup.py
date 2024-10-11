@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 setup(
     name="intrepydd",                  # Name of the package
-    version="0.1.8",                    # Version
+    version="0.1.9",                    # Version
     author="Tong Zhou",                 # Your name
     author_email="zt9465@gmail.com", # Your email
     description="An implementation of the Intrepydd compiler", # Short description
