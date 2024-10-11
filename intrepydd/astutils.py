@@ -1,4 +1,4 @@
-import typed_ast.ast3 as ast
+import ast
 from . import mytypes
 from . import glb
 #from glb import dump

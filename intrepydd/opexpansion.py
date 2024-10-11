@@ -1,5 +1,5 @@
 from . import defuse
-import typed_ast.ast3 as ast
+import ast
 from . import mytypes
 from .utils import get_operator_expansion_func
 from . import glb

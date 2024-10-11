@@ -1,5 +1,5 @@
 from enum import Enum
-import typed_ast.ast3 as ast
+import ast
 from . import glb
 from . import libfuncs
 from . import mytypes
@@ -22,12 +22,7 @@ Todo:
 ### Options ###
 # 0: Nothing, 1: Warning, 2: Debug (light), 3: Debug (moderate), 4: Debug (heavy)
 verbose_level = 1
-dump_by_code = False
-if dump_by_code:
-    import typed_astunparse
-    dumpfunc = typed_astunparse.unparse
-else:
-    dumpfunc = ast.dump
+dumpfunc = ast.dump
 sparse_par = False
 dense_par = False
 rt_shape_check = True
@@ -153,7 +148,7 @@ def is_scalar_var(N: ast.expr, func: ast.FunctionDef):
         and isinstance(N.value, ast.Name) and N.value.id in func.typemap):
         ty = func.typemap[N.value.id]
         if hasattr(ty, 'ndim'):
-            ln = len(N.slice.value.elts) if isinstance(N.slice.value, ast.Tuple) else 1
+            ln = len(N.slice.elts) if isinstance(N.slice, ast.Tuple) else 1
             return ty.ndim == ln
     return False
 

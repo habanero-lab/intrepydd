@@ -1,5 +1,5 @@
 import sys
-import typed_ast.ast3 as ast
+import ast
 from pprint import pprint
 from . import mytypes
 from . import glb
@@ -350,12 +350,12 @@ class ModuleGen(ast.NodeVisitor):
             # Assign to subscript
             # Need some interpretation
             elif isinstance(target, ast.Subscript):
-                #s = self.eval_get_or_set_item(self.eval(target.value), self.eval_Subscript_slice(target.slice.value), self.eval(N.value))
+                #s = self.eval_get_or_set_item(self.eval(target.value), self.eval_Subscript_slice(target.slice), self.eval(N.value))
                 s = self.eval_get_or_set_item(self.eval(target.value), target, self.eval(N.value))
 
                 # s = "pydd::setitem(%s, %s, %s)" % \
                 #   (self.eval(target.value), self.eval(N.value),
-                #    self.eval_Subscript_slice(target.slice.value))
+                #    self.eval_Subscript_slice(target.slice))
                 assigns.append(s)
                 
             else:
@@ -590,7 +590,7 @@ class ModuleGen(ast.NodeVisitor):
 
     
     def eval_get_or_set_item(self, base, sub, value=None):
-        indices = self.eval_Subscript_slice(sub.slice.value)
+        indices = self.eval_Subscript_slice(sub.slice)
         assert isinstance(indices, list)
         basetype = self.get_local_type(base)
         call = 'getitem'
@@ -650,7 +650,7 @@ class ModuleGen(ast.NodeVisitor):
 
     def eval_Subscript(self, N: ast.Subscript):
         '''
-        Fields: N.value[N.slice.value]
+        Fields: N.value[N.slice]
         '''
         # basetype = self.get_local_type(N.value.id)
         # call = 'getitem'
@@ -660,8 +660,8 @@ class ModuleGen(ast.NodeVisitor):
         #     elif basetype.get_dimension() == 2:
         #         call = 'getitem_2d'
         # s = "pydd::%s(%s, %s)" % \
-        #           (call, self.eval(N.value), self.eval_Subscript_slice(N.slice.value))
-        # return self.eval_get_or_set_item(N.value.id, self.eval_Subscript_slice(N.slice.value))
+        #           (call, self.eval(N.value), self.eval_Subscript_slice(N.slice))
+        # return self.eval_get_or_set_item(N.value.id, self.eval_Subscript_slice(N.slice))
         return self.eval_get_or_set_item(N.value.id, N)
 
     def eval_Subscript_slice(self, v):

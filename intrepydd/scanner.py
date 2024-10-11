@@ -3,7 +3,7 @@ from .symboltable import symtab
 from .glb import dump
 from . import mytypes
 from . import utils
-import typed_ast.ast3 as ast
+import ast
 
 class Scanner(ast.NodeVisitor):
     def __init__(self):

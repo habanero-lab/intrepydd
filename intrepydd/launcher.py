@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 
-import typed_ast.ast3 as ast
+import ast
 import sys
 import os
 from .typeinfer import TypeInferer
@@ -103,8 +103,7 @@ def gen_cpp_module(code):
         rewriter.visit(tree)
 
     if 'dumppy' in glb.options and glb.options['dumppy']:
-        import typed_astunparse
-        gen_python_code(typed_astunparse.unparse(tree))
+        gen_python_code(ast.unparse(tree))
 
     module = ModuleGen()
     module.visit(tree)

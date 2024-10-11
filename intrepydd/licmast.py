@@ -1,5 +1,5 @@
 from enum import Enum
-import typed_ast.ast3 as ast
+import ast
 from . import libfuncs
 from . import mytypes
 from . import defuse
@@ -12,12 +12,8 @@ Loop Invariant Code Motion for AST-level expressions (general)
 ### Options ###
 # 0: Nothing, 1: Warning, 2: Debug (light), 3: Debug (moderate), 4: Debug (heavy)
 verbose_level = 1
-dump_by_code = False
-if dump_by_code:
-    import typed_astunparse
-    dumpfunc = typed_astunparse.unparse
-else:
-    dumpfunc = ast.dump
+
+dumpfunc = ast.dump
 
 
 ############################################################################################
@@ -153,7 +149,7 @@ class LicmAstOptimization(defuse.DefUseAnalysis):
             elif isinstance(expr, ast.Subscript) and isinstance(expr.slice, ast.Index):
                 valid = True
                 calc_max = False
-                index = expr.slice.value
+                index = expr.slice
                 if isinstance(expr.value, ast.Name) and expr.value.id in self.curr_func.typemap:
                     ty = self.curr_func.typemap[expr.value.id]
                     ln = len(index.elts) if isinstance(index, ast.Tuple) else 1
@@ -290,7 +286,7 @@ class LicmAstOptimization(defuse.DefUseAnalysis):
             if expr.value in cs_exprs:
                 var = cs_exprs[expr.value]
                 expr.value = arrayopt.new_name(var, ast.Load, self.curr_func.typemap[var])
-            index = expr.slice.value
+            index = expr.slice
             if isinstance(index, ast.Tuple):
                 n = len(index.elts)
                 for i in range(n):
@@ -300,7 +296,7 @@ class LicmAstOptimization(defuse.DefUseAnalysis):
                                                           self.curr_func.typemap[var])
             elif index in cs_exprs:
                 var = cs_exprs[index]
-                expr.slice.value = arrayopt.new_name(var, ast.Load, self.curr_func.typemap[var])
+                expr.slice = arrayopt.new_name(var, ast.Load, self.curr_func.typemap[var])
 
         for node in ast.iter_child_nodes(expr):
             self.replace_cse_by_var(node, cs_exprs)

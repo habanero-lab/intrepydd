@@ -1,5 +1,5 @@
 import sys
-import typed_ast.ast3 as ast
+import ast
 from pprint import pprint
 import traceback
 

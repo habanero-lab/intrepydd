@@ -1,6 +1,6 @@
 import warnings
 import logging
-import typed_ast.ast3 as ast
+import ast
 from . import mytypes
 from . import glb
 
@@ -89,9 +89,9 @@ def get_annotation_type(N):
     elif isinstance(N, ast.Subscript):
         if isinstance(N.value, ast.Name):
             if N.value.id == 'List':
-                if N.slice.value.id == 'float':
+                if N.slice.id == 'float':
                     return mytypes.float64_list
-                if N.slice.value.id == 'int':
+                if N.slice.id == 'int':
                     return mytypes.int64_list   
                 
     else:

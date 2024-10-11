@@ -1,6 +1,6 @@
 import argparse
 import configparser
-import typed_ast.ast3 as ast
+import ast
 import os
 import platform
 import sys

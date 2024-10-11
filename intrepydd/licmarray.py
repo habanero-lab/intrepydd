@@ -1,5 +1,5 @@
 from enum import Enum
-import typed_ast.ast3 as ast
+import ast
 from . import libfuncs
 from . import defuse
 
@@ -49,8 +49,8 @@ def set_inv_array_dim(N: ast.FunctionDef, inv_array_dim):
 ### Utilities ###
 def get_num_array_dim(N: ast.Subscript):
     if isinstance(N.slice, ast.Index):
-        if isinstance(N.slice.value, ast.Tuple):
-            return len(N.slice.value.elts)
+        if isinstance(N.slice, ast.Tuple):
+            return len(N.slice.elts)
         else:
             return 1
     else:

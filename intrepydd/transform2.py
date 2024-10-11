@@ -1,4 +1,4 @@
-import typed_ast.ast3 as ast
+import ast
 from . import libfuncs
 from . import glb
 from . import scalarpriv

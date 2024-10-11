@@ -1,5 +1,5 @@
 import sys
-import typed_ast.ast3 as ast
+import ast
 from pprint import pprint
 import traceback
 
@@ -192,8 +192,10 @@ class TypeInferer(ast.NodeVisitor):
         if N.value.id in self.typemap:
             ty = self.get_symbol_type(N.value)
             if (isinstance(ty, mytypes.NpArray) and ty.ndim != -1):
-                if isinstance(N.slice.value, ast.Tuple):
-                    ndim_found = len(N.slice.value.elts)
+                print(ast.dump(N))
+                if isinstance(N.slice, ast.Tuple):
+                #if isinstance(N.slice, ast.Tuple):
+                    ndim_found = len(N.slice.elts)
                 else:
                     ndim_found = 1
                 if ty.ndim != ndim_found:

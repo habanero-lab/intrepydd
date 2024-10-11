@@ -1,4 +1,4 @@
-import typed_ast.ast3 as ast
+import ast
 import sys
 
 class v(ast.NodeVisitor):
