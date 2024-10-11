@@ -37,5 +37,9 @@ def compile_from_src(src, dense_array_opt=False, sparse_array_opt=False, licm=Fa
 
 def compile(fn, dense_array_opt=False, sparse_array_opt=False, licm=False, slice_opt=False):
     source_code = inspect.getsource(fn)
-    cpp_code = intrepydd.compile_from_src(source_code, dense_array_opt, sparse_array_opt, licm, slice_opt)
+    cpp_code = compile_from_src(source_code, dense_array_opt, sparse_array_opt, licm, slice_opt)
+    filename = 'mykernel.cpp'
+    Path(filename).write_text(cpp_code)
     import cppimport
+    module = cppimport.imp(filename.replace('.cpp', ''))
+    return getattr(module, fn.__name__)
