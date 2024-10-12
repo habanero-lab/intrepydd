@@ -22,7 +22,8 @@ def compile_from_file(file, args):
     launcher.main()
 
 def compile_from_src(src, no_cfg=False, dense_array_opt=False, sparse_array_opt=False, licm=False, slice_opt=False):
-    filename = './mykernel.pydd'
+    import datetime
+    filename = f'./kernel_{datetime.datetime.now().isoformat("_", "milliseconds").replace("-", "_").replace(":", "_").replace(".", "_")}.pydd'
     p = Path(filename)
     p.write_text(src)
     args = []
@@ -43,7 +44,15 @@ def compile_from_src(src, no_cfg=False, dense_array_opt=False, sparse_array_opt=
 def compile(fn, dense_array_opt=False, sparse_array_opt=False, licm=False, slice_opt=False):
     source_code = inspect.getsource(fn)
     cpp_code = compile_from_src(source_code, dense_array_opt, sparse_array_opt, licm, slice_opt)
-    filename = 'mykernel.cpp'
+    module_name = ''
+    for line in cpp_code.split():
+        if line.startswith('PYBIND11_PLUGIN('):
+            module_name = line.split('PYBIND11_PLUGIN(')[1].split(')')[0]
+            break
+    assert module_name != ''
+    #print(module_name)
+    #exit(1)
+    filename = f'{module_name}.cpp'
     Path(filename).write_text(cpp_code)
     import cppimport
     module = cppimport.imp(filename.replace('.cpp', ''))

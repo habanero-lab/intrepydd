@@ -1,3 +1,4 @@
+import sys
 from . import mytypes
 from . import glb
 
@@ -407,8 +408,20 @@ def get_linker_flags():
         # Anaconda should already have these
         # s += ['-liomp5', '-lmkl_core', '-lmkl_intel_thread',
         #       '-lmkl_intel_lp64', '-pthread']
-        from pathlib import Path
-        s += f"-m64 -L{Path.home()}/anaconda3/lib -Wl,--no-as-needed -lmkl_intel_ilp64 -lmkl_gnu_thread -lmkl_core -lgomp -lpthread -lm -ldl".split()
+        
+        #from pathlib import Path
+        #s += f"-m64 -L{Path.home()}/anaconda3/lib -Wl,--no-as-needed -lmkl_intel_ilp64 -lmkl_gnu_thread -lmkl_core -lgomp -lpthread -lm -ldl".split()
+        anaconda_path = sys.executable.replace('bin/python', '')
+        # remove "-Wl,--no-as-needed" to make it work on Mac
+        from sys import platform
+        if platform == "linux" or platform == "linux2":
+            s += f"-m64 -L{anaconda_path}/lib -Wl,--no-as-needed -lmkl_intel_ilp64 -lmkl_gnu_thread -lmkl_core -lgomp -lpthread -lm -ldl".split()
+        elif platform == "darwin":
+            # OS X
+            pass
+        elif platform == "win32":
+            # Windows...
+            raise Exception('Windows is to be supported!')
     
     # for p in used_packages:
     #     flags = packageinfo[p]
