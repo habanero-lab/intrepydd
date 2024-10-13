@@ -1,6 +1,10 @@
+import os
 import sys
 from pathlib import Path
 import inspect
+import shutil
+import hashlib
+
 
 int64 = None
 int32 = None
@@ -19,11 +23,13 @@ def compile_from_file(file, args):
     
     #print(glb.args)
     #os.chdir(glb.get_filepath())
+    print(sys.argv)
     launcher.main()
 
 def compile_from_src(src, no_cfg=False, dense_array_opt=False, sparse_array_opt=False, licm=False, slice_opt=False):
     import datetime
-    filename = f'./kernel_{datetime.datetime.now().isoformat("_", "milliseconds").replace("-", "_").replace(":", "_").replace(".", "_")}.pydd'
+    dir = '/tmp/'
+    filename = dir + f'kernel_{hashlib.sha256(src.encode()).hexdigest()}.pydd'
     p = Path(filename)
     p.write_text(src)
     args = []
@@ -41,7 +47,7 @@ def compile_from_src(src, no_cfg=False, dense_array_opt=False, sparse_array_opt=
         code = code.split('%>\n')[1].strip()
     return code
 
-def compile(fn, dense_array_opt=False, sparse_array_opt=False, licm=False, slice_opt=False):
+def compile(fn, preserve_generated=False, dense_array_opt=False, sparse_array_opt=False, licm=False, slice_opt=False):
     source_code = inspect.getsource(fn)
     cpp_code = compile_from_src(source_code, dense_array_opt, sparse_array_opt, licm, slice_opt)
     module_name = ''
@@ -50,10 +56,13 @@ def compile(fn, dense_array_opt=False, sparse_array_opt=False, licm=False, slice
             module_name = line.split('PYBIND11_PLUGIN(')[1].split(')')[0]
             break
     assert module_name != ''
-    #print(module_name)
-    #exit(1)
-    filename = f'{module_name}.cpp'
-    Path(filename).write_text(cpp_code)
+    
+    dir = '/tmp/'
+    cpp_file = dir + module_name + '.cpp'
+    copied_file = module_name + '.cpp'
+    shutil.copy(cpp_file, copied_file)
     import cppimport
-    module = cppimport.imp(filename.replace('.cpp', ''))
+    module = cppimport.imp(module_name)
+    Path(copied_file).unlink()
+    Path('.rendered.' + copied_file).unlink(missing_ok=True)
     return getattr(module, fn.__name__)

@@ -307,9 +307,9 @@ def get_basefile():
 def get_filepath():
     d = os.path.dirname(args.file)
     if d:
-        return d
+        return d + '/'
     else:
-        return '.'
+        return './'
 
 def get_module_name():
     return os.path.basename(get_module_fullname())

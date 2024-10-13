@@ -13,7 +13,7 @@ from . import glb
 
 def get_src_as_str():
     output = ''
-    for line in open(glb.get_basefile()):
+    for line in open(glb.args.file):
         sline = line.strip()
         if sline.startswith('pfor ') and sline[-1] == ':':
             sline = line.replace('pfor ', 'for ')
@@ -61,7 +61,7 @@ def gen_cpp_module(code):
       - Apply AST transformations based on type information
     '''
     
-    glb.open_cpp_module(glb.get_module_name())
+    glb.open_cpp_module(glb.get_filepath()+glb.get_module_name())
     tree = ast.parse(code)
     if glb.args.verbose:
         print("AST parsing done.")
