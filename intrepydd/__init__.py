@@ -51,9 +51,11 @@ def compile_from_src(src, no_cfg=False, dense_array_opt=False, sparse_array_opt=
         code = code.split('%>\n')[1].strip()
     return code
 
-def compile(fn, preserve_generated=False, dense_array_opt=False, sparse_array_opt=False, licm=False, slice_opt=False):
+def compile(fn, print_cpp=False, dense_array_opt=False, sparse_array_opt=False, licm=False, slice_opt=False):
     source_code = inspect.getsource(fn)
     cpp_code = compile_from_src(source_code, dense_array_opt, sparse_array_opt, licm, slice_opt)
+    if print_cpp:
+        print(cpp_code)
     module_name = ''
     for line in cpp_code.split():
         if line.startswith('PYBIND11_PLUGIN('):
