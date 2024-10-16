@@ -4,26 +4,15 @@ from pathlib import Path
 import inspect
 import shutil
 import hashlib
-
-
-int64 = None
-int32 = None
-float64 = None
-float32 = None
 from . import glb, launcher
 
-def Array(ty, ndim):
-    pass
-    return
 
 def compile_from_file(file, args):
     sys.argv = sys.argv[:1]  # to make it work when hit "compile" multiple times in the web version
     sys.argv += [file] + args + ["-v"]
     glb.init()
     
-    #print(glb.args)
     #os.chdir(glb.get_filepath())
-    print(sys.argv)
     launcher.main()
 
 def compile_from_src(src, no_cfg=False, dense_array_opt=False, sparse_array_opt=False, licm=False, slice_opt=False):
