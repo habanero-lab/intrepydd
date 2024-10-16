@@ -6,5 +6,4 @@ float64 = None
 float32 = None
 
 def Array(ty, ndim):
-    pass
     return

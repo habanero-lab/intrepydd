@@ -9,7 +9,7 @@ from . import glb, launcher
 
 def compile_from_file(file, args):
     sys.argv = sys.argv[:1]  # to make it work when hit "compile" multiple times in the web version
-    sys.argv += [file] + args + ["-v"]
+    sys.argv += [file] + args #+ ["-v"]
     glb.init()
     
     #os.chdir(glb.get_filepath())
