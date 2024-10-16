@@ -11,13 +11,15 @@ from . import glb, launcher
 def install_and_import(package):
     try:
         # Check if the package is already installed
-        importlib.import_module(package)
-        print(f"'{package}' is already installed.")
+        m = importlib.import_module(package)
+        #print(f"'{package}' is already installed.")
     except ImportError:
         # Package not found, install it
         print(f"'{package}' not found. Installing...")
         subprocess.check_call([sys.executable, "-m", "pip", "install", package])
         print(f"'{package}' has been installed.")
+        m = importlib.import_module(package)
+    return m
 
 
 def compile_from_file(file, args):
@@ -63,7 +65,7 @@ def compile(fn, preserve_generated=False, dense_array_opt=False, sparse_array_op
     cpp_file = dir + module_name + '.cpp'
     copied_file = module_name + '.cpp'
     shutil.copy(cpp_file, copied_file)
-    install_and_import('cppimport')
+    cppimport = install_and_import('cppimport')
     module = cppimport.imp(module_name)
     Path(copied_file).unlink()
     Path('.rendered.' + copied_file).unlink(missing_ok=True)
