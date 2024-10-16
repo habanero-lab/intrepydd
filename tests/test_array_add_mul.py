@@ -7,7 +7,7 @@ def foo(a: Array(float64, 1), b: Array(float64, 1)):
 
 foo1 = intrepydd.compile(foo)
 
-N = 10000
+N = 100000
 a = np.random.randn(N)
 b = np.random.randn(N)
 assert np.allclose(foo(a, b), foo1(a, b))
