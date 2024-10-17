@@ -9,7 +9,7 @@
 // #include <mkl.h>
 // #include <mkl_cblas.h>
 // #include <mkl_blas.h>
-#include <cblas.h>
+#include "cblas.h"
 
 namespace py = pybind11;
 
