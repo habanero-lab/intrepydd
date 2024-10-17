@@ -418,7 +418,7 @@ def get_linker_flags():
             s += f"-m64 -L{anaconda_path}/lib -Wl,--no-as-needed -lmkl_intel_ilp64 -lmkl_gnu_thread -lmkl_core -lgomp -lpthread -lm -ldl".split()
         elif platform == "darwin":
             # OS X
-            pass
+            s += f"-m64 -lopenblas -lgomp -lpthread -lm -ldl".split()
         elif platform == "win32":
             # Windows...
             raise Exception('Windows is to be supported!')
