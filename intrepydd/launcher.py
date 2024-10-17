@@ -29,12 +29,13 @@ def make_python_code(code):
     return
 
 def gen_python_code(code):
-    debug_path = os.path.dirname(os.path.realpath(__file__)) + '/debugging'
-    prefix = 'import sys\n'
-    prefix += 'sys.path.append("%s")\n' % debug_path
-    prefix += 'from pydd_types import *\n'
-    prefix += 'from pydd_python import *\n'
-    prefix += 'from pydd_numpy import *\n'
+    # debug_path = os.path.dirname(os.path.realpath(__file__)) + '/debugging'
+    # prefix = 'import sys\n'
+    # prefix += 'sys.path.append("%s")\n' % debug_path
+    # prefix += 'from pydd_types import *\n'
+    # prefix += 'from pydd_python import *\n'
+    # prefix += 'from pydd_numpy import *\n'
+    prefix = 'from intrepydd.lang import *\n'
     print(prefix+code, file=open(glb.get_module_name()+'.py', 'w'))
 
 def gen_numba_code(code):
