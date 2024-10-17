@@ -394,7 +394,8 @@ def get_header_files():
     return s
 
 def get_compiler_flags():
-    s = []
+    anaconda_path = sys.executable.replace('bin/python', '')
+    s = ['-m64', '-I'+anaconda_path+'/include']
     # for p in used_packages:
     #     flags = packageinfo[p]
     #     if len(flags) > 0:
