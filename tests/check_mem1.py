@@ -12,6 +12,7 @@ def foo(a, r, b, iters):
         b = r @ (1.0 / c)
         #mem_usage_after = memory_usage()
         #print(f"Memory usage before: {mem_usage_before}, after: {mem_usage_after}")
+    return b
 
 #@profile
 def foo1(a, r, b, iters):
@@ -23,21 +24,25 @@ def foo1(a, r, b, iters):
         # c = a @ b
         np.matmul(a, b, out=c) 
         # b = r @ c
-        np.divide(1.0, c, out=t)
-        np.matmul(r, t, out=b)
+        np.divide(1.0, c, out=c)
+        np.matmul(r, c, out=b)
         
         #mem_usage_after = memory_usage()
 
         #print(f"Memory usage before: {mem_usage_before}, after: {mem_usage_after}")
+    return b
+
 
 # Example usage with dummy arrays
-a = np.random.rand(8000, 8000)
-r = np.random.rand(8000, 8000)
-b = np.random.rand(8000, 8000)
+a = np.random.rand(2000, 2000)
+r = np.random.rand(2000, 2000)
+b = np.random.rand(2000, 2000)
 iters = 3
+
+assert np.allclose(foo(a, r, b, iters), foo1(a, r, b, iters))
 
 #foo(a, r, b, iters)
 #foo1(a, r, b, iters)
 import timeit
-print(timeit.timeit(lambda: foo1(a, r, b, iters), number=1))
-#print(timeit.timeit(lambda: foo1(a, r, b, iters), number=1))
+print(timeit.timeit(lambda: foo(a, r, b, iters), number=30) / 30)
+print(timeit.timeit(lambda: foo1(a, r, b, iters), number=30) / 30)
