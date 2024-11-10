@@ -73,7 +73,7 @@ def new_name(var: str, ctx: ast.expr_context, ty1 = None, ty2 = None):
     
 def new_assign(var: str, expr: ast.expr, ty = None):
     tar = new_name(var, ast.Store, ty, (expr.type if hasattr(expr, 'type') else None))
-    ret = ast.Assign(targets = [tar], value = expr)
+    ret = ast.Assign(targets = [tar], value = expr, lineno = None, col_offset = None)
     return ret
 
 def new_aug_assign(var: str, op:ast.operator, expr: ast.expr, ty = None):

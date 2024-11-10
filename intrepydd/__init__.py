@@ -30,12 +30,11 @@ def compile_from_file(file, args):
     #os.chdir(glb.get_filepath())
     launcher.main()
 
-def compile_from_src(src, no_cfg=False, dense_array_opt=False, sparse_array_opt=False, licm=False, slice_opt=False):
+def compile_from_src(src, no_cfg=False, dense_array_opt=False, sparse_array_opt=False, licm=False, slice_opt=False, dumppy=False):
     import datetime
     dir = '/tmp/'
     filename = dir + f'kernel_{hashlib.sha256(src.encode()).hexdigest()}.pydd'
-    p = Path(filename)
-    p.write_text(src)
+    Path(filename).write_text(src)
     args = []
     if dense_array_opt:
         args.append('-dense-opt')
@@ -45,11 +44,17 @@ def compile_from_src(src, no_cfg=False, dense_array_opt=False, sparse_array_opt=
         args.append('-licm')
     if slice_opt:
         args.append('-slice_opt')
+    if dumppy:
+        args.append('-dumppy')
     compile_from_file(filename, args)
-    code = Path(filename.replace('.pydd', '.cpp')).read_text()
-    if no_cfg and '%>\n' in code:
-        code = code.split('%>\n')[1].strip()
-    return code
+    cppcode = Path(filename.replace('.pydd', '.cpp')).read_text()
+    if no_cfg and '%>\n' in cppcode:
+        cppcode = code.split('%>\n')[1].strip()
+    if dumppy:
+        pycode = Path(filename.replace('.pydd', '.py')).read_text()
+        return cppcode, pycode
+    else:
+        return cppcode
 
 def compile(fn, print_cpp=False, dense_array_opt=False, sparse_array_opt=False, licm=False, slice_opt=False):
     source_code = inspect.getsource(fn)
