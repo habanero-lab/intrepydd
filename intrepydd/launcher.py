@@ -35,7 +35,7 @@ def gen_python_code(code):
     # prefix += 'from pydd_types import *\n'
     # prefix += 'from pydd_python import *\n'
     # prefix += 'from pydd_numpy import *\n'
-    prefix = 'from intrepydd.lang import *\n'
+    prefix = 'from intrepydd.lang import *\n\n'
     print(prefix+code, file=open(glb.get_filepath()+glb.get_module_name()+'.py', 'w'))
 
 def gen_numba_code(code):
