@@ -18,5 +18,5 @@ def sinkhorm_wmd(K: Array(float64, 2), M: Array(float64, 2), r: Array(float64, 1
     v = c.spm_mul(div(1.0, K.T @ u))
     return mul(u, spmm_dense(mul(K, M), v)).sum(0)
 
-cppcode, pycode = pydd.compile_from_src(inspect.getsource(sinkhorm_wmd), dumppy=True, licm=True)
-print(pycode)
+cppcode, pycode = pydd.compile_from_src(inspect.getsource(sinkhorm_wmd), dumppy=True, licm=True, dense_array_opt=True, sparse_array_opt=True)
+print(cppcode)

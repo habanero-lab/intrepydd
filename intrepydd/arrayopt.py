@@ -394,7 +394,7 @@ class ArrayOptimization(ast.NodeVisitor):
     def generate_for(self, idx: str, func: str, arg0: str, arg1, body: list, is_pfor = False):
         arg1Ast = ast.Num(arg1) if isinstance(arg1, int) else ast.Name(arg1, ast.Load())
         rangeCall = new_call('range', [new_call(func, [ast.Name(arg0, ast.Load()), arg1Ast])])
-        ret = ast.For(ast.Name(idx, ast.Store()), rangeCall, body, [])
+        ret = ast.For(ast.Name(idx, ast.Store()), rangeCall, body, [], lineno = None, col_offset = None)
         ret.is_pfor = is_pfor
         if is_pfor: self.curr_func.has_pfor = True
 
