@@ -49,7 +49,7 @@ def compile_from_src(src, no_cfg=False, dense_array_opt=False, sparse_array_opt=
     compile_from_file(filename, args)
     cppcode = Path(filename.replace('.pydd', '.cpp')).read_text()
     if no_cfg and '%>\n' in cppcode:
-        cppcode = code.split('%>\n')[1].strip()
+        cppcode = cppcode.split('%>\n')[1].strip()
     if dumppy:
         pycode = Path(filename.replace('.pydd', '.py')).read_text()
         return cppcode, pycode
@@ -58,7 +58,11 @@ def compile_from_src(src, no_cfg=False, dense_array_opt=False, sparse_array_opt=
 
 def compile(fn, print_cpp=False, dense_array_opt=False, sparse_array_opt=False, licm=False, slice_opt=False):
     source_code = inspect.getsource(fn)
-    cpp_code = compile_from_src(source_code, dense_array_opt, sparse_array_opt, licm, slice_opt)
+    cpp_code = compile_from_src(source_code, 
+                    dense_array_opt=dense_array_opt, 
+                    sparse_array_opt=sparse_array_opt, 
+                    licm=licm, 
+                    slice_opt=slice_opt)
     if print_cpp:
         print(cpp_code)
     module_name = ''

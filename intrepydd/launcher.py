@@ -8,6 +8,7 @@ from .codegen import ModuleGen
 from .scanner import Scanner
 from .transform1 import TypeFreeTransformer
 from .transform2 import TypedTransformer
+from .ret_to_assign import ReturnExprToStmt
 from . import glb
 
 
@@ -66,6 +67,8 @@ def gen_cpp_module(code):
     tree = ast.parse(code)
     if glb.args.verbose:
         print("AST parsing done.")
+
+    tree = ReturnExprToStmt().visit(tree)
 
     scanner = Scanner()
     scanner.visit(tree)

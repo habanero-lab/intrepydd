@@ -3,9 +3,10 @@ import intrepydd
 from intrepydd.lang import *
 
 def foo(a: Array(float64, 1), b: Array(float64, 1)):
-    return 0.5 * a + b
+    x = 0.5 * a + b
+    return x
 
-foo1 = intrepydd.compile(foo)
+foo1 = intrepydd.compile(foo, dense_array_opt=True)
 
 N = 100000
 a = np.random.randn(N)
