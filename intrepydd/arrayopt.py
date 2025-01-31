@@ -824,7 +824,7 @@ class ArrayOptimization(ast.NodeVisitor):
         body_expr = self.scalarize_dense_array_op(opt_info.target_call, indices)
         assert body_expr
         idcs = [opt_info.tar_slice] + indices if opt_info.tar_slice else indices
-        loop = ast.Assign([new_subscript(opt_info.tar_var, idcs)], body_expr)
+        loop = ast.Assign([new_subscript(opt_info.tar_var, idcs)], body_expr, lineno=None, col_offset=None)
         for i in reversed(idxvec):
             pf = dense_par and i == src_lw
             loop = self.generate_for(indices[i-src_lw], 'shape', opt_info.src_var, i, [loop], pf)
